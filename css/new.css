@@ -1,0 +1,191 @@
+/* VARIABLES
+-------------------------------------------------- */
+
+:root {
+
+  --global_size: 18px;
+
+  --kokage: rgb(164, 157, 143);
+  --firefox_dark: rgb(31, 33, 28);
+  --firefox_light: #eee;
+
+}
+
+
+/* GLOBAL
+-------------------------------------------------- */
+
+html, body {
+  background: var(--firefox_light) url('lightnoise.png');;
+  color: var(--firefox_dark);
+}
+
+body {
+  padding: var(--global_size);
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--firefox_dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 2em;
+  font-size: 1em;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.color-block {
+  width: var(--global_size);
+  height: var(--global_size);
+  display: inline-block;
+}
+
+.published-circle {
+  width: calc(var(--global_size) / 2);
+  height: calc(var(--global_size) / 2);
+  display: inline-block;
+  background: var(--kokage);
+  border-radius: 50%;
+}
+
+.grid-wrap {
+  clear: both;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.grid-value {
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 20%;
+  padding-bottom: var(--global_size);
+}
+
+.grid-value.color {
+  width: calc(var(--global_size) * 2);
+}
+
+.grid-value.title {
+  width: 30%;
+}
+
+.grid-value.type,
+.grid-value.family {
+  width: 15%;
+}
+
+.grid-value.year,
+.grid-value.status {
+  width: 10%;
+}
+
+.grid-col {
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+li.grid-col.col-full:hover {
+  background: yellow;
+}
+
+li.grid-col.col-full.dormant:hover {
+  background: cyan;
+}
+
+.col-full {
+  width: 100%;
+}
+
+.col-one-half {
+  width: 47%;
+}
+
+.col-one-third {
+  width: 33.333%;
+}
+
+.col-two-thirds {
+  width: 66.666%;
+}
+
+.col-one-quarter {
+  width: 25%;
+}
+
+.col-three-quarters {
+  width: 75%;
+}
+
+.col-one-fifth {
+  width: 20%;
+}
+
+.col-two-fifths {
+  width: 40%;
+}
+
+.col-three-fifths {
+  width: 60%;
+}
+
+.col-one-sixth {
+  width: 16.667%;
+}
+
+/* INDEX META
+-------------------------------------------------- */
+
+#index-status {
+  position: fixed;
+  padding: calc(var(--global_size) / 3);
+  bottom: var(--global_size);
+  left: var(--global_size);
+  right: var(--global_size);
+  text-align: center;
+}
+
+#index-status span {
+  display: inline-block;
+  background: #eee;
+  color: #888888;
+}
+
+
+/* DARK MODE
+-------------------------------------------------- */
+
+/* @media (prefers-color-scheme: dark) {
+
+  html,
+  body {
+    background: var(--firefox_dark) url('darknoise.png');
+    color: var(--kokage);
+  }
+
+  a {
+    color: var(--kokage);
+  }
+
+  #index-status span {
+    color: var(--firefox_dark);
+    background: var(--kokage);
+  }
+
+} */
