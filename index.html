@@ -12,10 +12,21 @@
     html, body {
       background: transparent;
     }
-    nav .hidden { display: none; }
-    a { background: #eee; text-decoration: none; text-transform: lowercase; display: inline-block; margin-right: 1em;}
-    iframe { pointer-events: none; position: fixed; cursor: pointer; height: 100vh; width: 100vw; border: 0; top: 0; left: 0; bottom: 0; right: 0; z-index: -1; }
-    a.button, .button { display: inline-block; padding: .625rem .8rem .7rem; background-color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,.05); }
+    nav { position: absolute; top: 18px; right: 18px; }
+    a { text-decoration: none; }
+    #links { display: none; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: Orchid; padding: 18px; z-index: -1; }
+    iframe { pointer-events: none; position: fixed; cursor: pointer; height: 100vh; width: 100vw; border: 0; top: 0; left: 0; bottom: 0; right: 0; z-index: -1; box-shadow: 0px 0px 20px rgba(0,0,0,0.20),
+	0px 10px 20px rgba(0,0,0,0.15),
+	0px 20px 20px rgba(0,0,0,0.15),
+	0px 30px 20px rgba(0,0,0,0.15); transition: 1s top; }
+    iframe.move { top: 222px; bottom: -222px; }
+    a.big-button {
+      color: black; display: inline-block; background: white; padding: .625rem .8rem .55rem; background-color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,.05); border-radius: 5px;
+    }
+    a.button, .button { color: black; display: inline-block; background: white; margin-right: 1em;
+    /* padding: .625rem .8rem .55rem; background-color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,.05); border-radius: 5px; */
+   }
+    #button { display: none; }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
@@ -35,13 +46,54 @@
 
   <body>
 
+    <div id="links">
+      <a
+        href="https://www.nytimes.com/interactive/2021/05/19/style/how-to-build-a-bird-kite.html"target="_blank"
+        class="button external"
+        >"How to Build a Bird Kite"</a
+      >
+      <a href="https://gumroad.com/l/bird-kite" class="button external" target="_blank"
+        >Printable Bird Kite Instructions PDF</a
+      >
+      <a href="https://laurelschwulst.github.io/laurel-schwulst-wiki/" target="_blank" class="button">Wiki</a>
+      <a
+        href="https://docs.google.com/spreadsheets/d/15CjF9onM6PRhb_mvTzPeiRK9pbKr1esis9efJn10r6g/edit?usp=sharing" target="_blank"
+        class="external button"
+        >CV</a
+      >
+      <a
+        href="newsletter.html"
+        class="external button"
+        target="_blank"
+        >Newsletter</a
+      >
+    </div>
+
     <nav>
-      <a href="links.html" class="button">
-        ...
+      <a href="#" class="big-button" id="button">
+        e
       </a>
     </nav>
 
-    <iframe id="iframe" src="https://laurelschwulst.github.io/shimmering/" height="100%" width="100%"></iframe>
+    <iframe id="mi-iframe" name="mi-iframe" src="https://laurelschwulst.github.io/shimmering/" height="100%" width="100%"></iframe>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    var links_open = false;
+    $('#button').click(function(){
+      if(links_open == false){
+        $('iframe').addClass('move');
+        links_open = true;
+      }
+      else {
+        $('iframe').removeClass('move');
+        links_open = false;
+      }
+    });
+    setTimeout(function(){
+      $("#links").fadeIn(1000);
+      $("#button").fadeIn(3000);
+    }, 9000);
+    </script>
   </body>
 </html>
