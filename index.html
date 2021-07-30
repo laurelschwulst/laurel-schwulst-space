@@ -12,21 +12,24 @@
     html, body {
       background: transparent;
     }
-    nav { position: absolute; top: 18px; right: 18px; }
+    nav { position: absolute; top: 18px; right: 18px; z-index: 3; }
     a { text-decoration: none; }
     #links { display: none; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: Orchid; padding: 18px; z-index: -1; }
-    iframe { pointer-events: none; position: fixed; cursor: pointer; height: 100vh; width: 100vw; border: 0; top: 0; left: 0; bottom: 0; right: 0; z-index: -1; box-shadow: 0px 0px 20px rgba(0,0,0,0.20),
+    iframe { position: fixed; height: 100vh; width: 100vw; border: 0; top: 0; left: 0; bottom: 0; right: 0; box-shadow: 0px 0px 20px rgba(0,0,0,0.20),
 	0px 10px 20px rgba(0,0,0,0.15),
 	0px 20px 20px rgba(0,0,0,0.15),
 	0px 30px 20px rgba(0,0,0,0.15); transition: 1s top; }
     iframe.move { top: 222px; bottom: -222px; }
+    a.big-button.current {
+      background: white;
+    }
     a.big-button {
-      color: black; display: inline-block; background: white; padding: .625rem .8rem .55rem; background-color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,.05); border-radius: 5px;
+      color: black; display: inline-block; background: transparent; padding: .625rem .8rem .55rem; box-shadow: 0 4px 10px rgba(0,0,0,.05); border-radius: 5px;
     }
     a.button, .button { color: black; display: inline-block; background: white; margin-right: 1em; margin-bottom: 1em;
     /* padding: .625rem .8rem .55rem; background-color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,.05); border-radius: 5px; */
    }
-    #button { display: none; }
+    a.big-button { display: none; margin: 5px; }
     </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
@@ -46,7 +49,7 @@
 
   <body>
 
-    <div id="links">
+    <!-- <div id="links">
       <a
         href="https://www.nytimes.com/interactive/2021/05/19/style/how-to-build-a-bird-kite.html"target="_blank"
         class="button external"
@@ -67,32 +70,40 @@
         target="_blank"
         >Newsletter</a
       >
-    </div>
+    </div> -->
 
-    <nav>
+    <!-- <nav>
       <a href="#" class="big-button" id="button">
         e
       </a>
+    </nav> -->
+    <nav>
+      <!-- <a href="https://laurelschwulst.github.io/shimmering" class="big-button" target="mi-iframe">e</a> -->
+      <a href="https://laurelschwulst.github.io/laurel-schwulst-wiki" class="big-button current" target="_blank">i</a>
     </nav>
 
-    <iframe id="mi-iframe" name="mi-iframe" src="https://laurelschwulst.github.io/shimmering/" height="100%" width="100%"></iframe>
+    <iframe scrolling="yes" id="mi-iframe" name="mi-iframe" src="https://laurelschwulst.github.io/shimmering"></iframe>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-    var links_open = false;
-    $('#button').click(function(){
-      if(links_open == false){
-        $('iframe').addClass('move');
-        links_open = true;
-      }
-      else {
-        $('iframe').removeClass('move');
-        links_open = false;
-      }
-    });
+    // var links_open = false;
+    // $('#button').click(function(){
+    //   if(links_open == false){
+    //     $('iframe').addClass('move');
+    //     links_open = true;
+    //   }
+    //   else {
+    //     $('iframe').removeClass('move');
+    //     links_open = false;
+    //   }
+    // });
+    // $('a.big-button').click(function(){
+    //   $('a.big-button').addClass('current');
+    //   $(this).removeClass('current');
+    // })
     setTimeout(function(){
-      $("#links").fadeIn(1000);
-      $("#button").fadeIn(3000);
+      // $("#links").fadeIn(1000);
+      $("a.big-button").fadeIn(3000);
     }, 9000);
     </script>
   </body>
